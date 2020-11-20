@@ -37,11 +37,12 @@ function sendData() {
         const id = Object.values(data)[0];
         const table = document.querySelector("tbody");
         const row= document.createElement("tr");
-        row.innerHTML =  `<td>${id}</td>
-                          <td>${location.city}, ${location.country}</td>
-                          <td>${location.timezone}</td>
-                          <td>${isp}</td>`
+        row.innerHTML =  `<td style="text-align:center; border-right: 1px solid #ccc;"><strong>${id}</strong></td>
+                          <td style="text-align:center; border-right: 1px solid #ccc;"><strong>${location.city}, ${location.country}</strong></td>
+                          <td style="text-align:center; border-right: 1px solid #ccc;"><strong>${location.timezone}</strong></td>
+                          <td style="text-align:center; border-right: 1px solid #ccc;"><strong>${isp}</strong></td>`
         table.appendChild(row);
+        console.log(table)
       } );
   
       XHR.addEventListener( "error", function( event ) {
@@ -50,14 +51,14 @@ function sendData() {
   
       if(typeof query.value == 'number')
       {
-          XHR.open( "GET", `https://geo.ipify.org/api/v1?apiKey={}&ipAddress=${query.value}`);
+          XHR.open( "GET", `https://geo.ipify.org/api/v1?apiKey=&ipAddress=${query.value}`);
       }else if(query.value.length !== 0)
       {
-      XHR.open( "GET", `https://geo.ipify.org/api/v1?apiKey={}&domain=${query.value}`);
+      XHR.open( "GET", `https://geo.ipify.org/api/v1?apiKey=&domain=${query.value}`);
      }
      else
     {
-      XHR.open( "GET", `https://geo.ipify.org/api/v1?apiKey={}`);
+      XHR.open( "GET", `https://geo.ipify.org/api/v1?apiKey=`);
     }
       XHR.send( FD );
       query.value = '';
