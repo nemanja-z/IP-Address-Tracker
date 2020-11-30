@@ -1,6 +1,8 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 module.exports = {
   mode: 'development',
@@ -10,19 +12,26 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '',
   },
   devServer: {
-
-    contentBase: './dist',
-
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
   },
   devtool:'inline-source-map',
   plugins:[
     new HtmlWebpackPlugin({      
-      title: 'webpack Boilerplate',      
-      template: path.resolve(__dirname, './src/index.html'), 
-      filename:"index.html"}), 
+      hash: true,
+      title: 'IP Address',
+      template: './src/index.html',
+      filename: './index.html'  
+    }), 
       new CleanWebpackPlugin({cleanStaleWebpackAssets:false}),
+      new MiniCssExtractPlugin({
+        filename:'[name].css',
+        chunkFilename:'[id].css'
+      }),
   ],
   resolve:{alias: {
     "./images/layers.png$": path.resolve(
@@ -59,13 +68,34 @@ module.exports = {
             }
           },
           {
-            test: /\.css$/i,
-            use:['style-loader', 'css-loader'],
+            test: /\.css$/,
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader, 
+                options: {
+                    publicPath: ''
+                }
+            },
+            {
+                loader: "css-loader"
+            }
+            ],
           },
           {
-            test: /\.(gif|svg|jpg|png)$/,
-            loader: "file-loader",
+
+            test: /\.(png|svg|jpg|jpeg|gif)$/i,
+    
+            use: [{
+              loader:'file-loader',
+              options:{minimize:true}}],
+    
           },
+        {
+            test: /\.(html)$/,
+            use: {
+                loader: 'html-loader'
+            }
+        },
           {
 
             test: /\.(woff|woff2|eot|ttf|otf)$/i,

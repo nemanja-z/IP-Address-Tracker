@@ -1,28 +1,37 @@
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
+import './style.css';
+import image from "./images/icon-location.svg";
 
-//const submit = document.querySelector("button[type='submit']");
-const map = L.map("mapid").locate({setView:true});
+
 let marker;
 let data;
-map.on("locationfound", function(e){
-  e.preventDefault();
-  mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
+const map = L.map('mapid', {
+  center: [37.7749, -122.4194],
+   zoom: 13
+ });
+const mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
 L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; ' + mapLink,
-    maxZoom: 18}).addTo(map);
-    sendData();
+  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: 'Map data &copy; ' + mapLink,
+  maxZoom: 18}).addTo(map);
+map.locate({setView:true}).on("locationfound", function(e){
+  console.log(e)
+  onMapClick(e);
+  sendData(); 
+});
+
+    
+    /* sendData();
     onMapClick(e);
-    setTable();})
+    setTable(); })*/
 const myIcon = L.icon({
-        iconUrl: './images/icon-location.svg'
+        iconUrl: image
     }); 
 
 
 
 function onMapClick(e) {
-  e.preventDefault();
     if(marker){
       map.removeLayer(marker);
     }
@@ -33,15 +42,16 @@ function onMapClick(e) {
     radius: 500.,
     icon:myIcon
   }).addTo(map);
-  }  
+  } 
+
 function sendData() {
       const XHR = new XMLHttpRequest();
       let query = document.getElementById("ip");
       const FD = new FormData( form );
       
       XHR.addEventListener("load", function(event) {
-        data = JSON.parse(event.target.responseText);
-        setTable();
+        const info = JSON.parse(event.target.responseText);
+        setTable(info);
       } );
   
       XHR.addEventListener( "error", function( event ) {
@@ -68,9 +78,9 @@ function sendData() {
   
       sendData();
     } );
-function setTable(){
-      const {location, isp} = data;
-      const id = Object.values(data)[0];
+function setTable(info){
+      const {location, isp} = info;
+      const id = Object.values(info)[0];
       const table = document.querySelector("tbody");
       const secondRow = document.querySelector("tr").nextSibling;
       if(secondRow){
@@ -83,10 +93,9 @@ function setTable(){
                         <td style="text-align:center; border-right: 1px solid #ccc;"><strong>${isp}</strong></td>`
       
       table.appendChild(row);               
-    }
+    } 
 window.onload = (e) => {
   sendData();
-  onMapClick(e);
 };
 
 
