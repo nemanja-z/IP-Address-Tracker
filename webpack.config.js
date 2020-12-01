@@ -23,9 +23,10 @@ module.exports = {
   plugins:[
     new HtmlWebpackPlugin({      
       hash: true,
-      title: 'IP Address',
+      title: 'IP Address Tracker',
       template: './src/index.html',
-      filename: './index.html'  
+      filename: './index.html',
+      favicon: "./src/images/favicon-32x32.png"  
     }), 
       new CleanWebpackPlugin({cleanStaleWebpackAssets:false}),
       new MiniCssExtractPlugin({

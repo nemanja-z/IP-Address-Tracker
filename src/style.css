@@ -1,6 +1,6 @@
-/* *{
+*{
     box-sizing: border-box;
-} */
+}
 
 #header{
     display: flex;
@@ -10,19 +10,35 @@
     background-image: url("./images/pattern-bg.png");
 }
 header{
-    height: 40%;
+    height: 150px;
 }
 
-#mapid { height: 180px; }
+#mapid { 
+    height: 500px;
+    z-index: 2;
+}
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
 th{
     border-right: 1px solid #ccc;
 }
 table{
-    border:solid;
-    z-index: 100;
+    background-color: white;
+    border-radius: 10px;
+    position:absolute;
+    top:125px;
+    left: 0;
+    right: 0;
+    width:70%; 
+    height:100px; 
+    margin:auto;
+    border:white;
+    z-index: 10;
 }
 h1{
     color:white;
+}
+#ip{
+    width:220px;
+    height:50px;
 }
