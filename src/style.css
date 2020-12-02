@@ -10,7 +10,7 @@
     background-image: url("./images/pattern-bg.png");
 }
 header{
-    height: 150px;
+    height: 180px;
 }
 
 #mapid { 
@@ -26,7 +26,7 @@ table{
     background-color: white;
     border-radius: 10px;
     position:absolute;
-    top:125px;
+    top:140px;
     left: 0;
     right: 0;
     width:70%; 
@@ -38,7 +38,26 @@ table{
 h1{
     color:white;
 }
+#myForm input[type='text']{
+    margin-right:-4px;
+}
 #ip{
     width:220px;
-    height:50px;
+    height:30px;
+}
+button[type="submit"] {
+    height:30px;
+    background-color:hsl(0, 0%, 17%);
+  }
+button[type="submit"]:hover {
+    height:30px;
+    background-color:hsl(0, 0%, 59%);
+  }
+
+
+#search_wrapper{
+    overflow: hidden;
+    background-color:white;
+    position:relative;
+    border: 1px solid black;
 }
