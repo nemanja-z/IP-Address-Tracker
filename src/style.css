@@ -1,8 +1,20 @@
 *{
     box-sizing: border-box;
 }
-
-#header{
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: normal;
+    src:
+      url('./fonts/Rubik-Regular.ttf') format('ttf');
+  }
+   
+  html,
+  body {
+    font-family: 'Rubik', sans-serif;
+    font-size:18px;
+  }
+.header{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,25 +51,29 @@ h1{
     color:white;
 }
 #myForm input[type='text']{
-    margin-right:-4px;
+    margin-right:-8px;
+}
+
+.search_wrapper{
+    border-radius: 5px;
+    overflow: hidden;
+    background-color:white;
+    position:relative;
 }
 #ip{
+    border-radius: 5px 0 0 5px;
     width:220px;
     height:30px;
 }
 button[type="submit"] {
+    border-radius: 0 5px 5px 0;
     height:30px;
     background-color:hsl(0, 0%, 17%);
   }
 button[type="submit"]:hover {
+    border-radius: 0 5px 5px 0;
     height:30px;
     background-color:hsl(0, 0%, 59%);
   }
 
 
-#search_wrapper{
-    overflow: hidden;
-    background-color:white;
-    position:relative;
-    border: 1px solid black;
-}

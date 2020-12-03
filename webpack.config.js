@@ -34,7 +34,8 @@ module.exports = {
         chunkFilename:'[id].css'
       }),
   ],
-  resolve:{alias: {
+  resolve:{
+    alias: {
     "./images/layers.png$": path.resolve(
         __dirname,
         "./node_modules/leaflet/dist/images/layers.png"
@@ -100,7 +101,9 @@ module.exports = {
           {
 
             test: /\.(woff|woff2|eot|ttf|otf)$/i,
-            type: 'asset/resource',
+            use: {
+              loader: 'url-loader',
+            },
     
           },
     ],
