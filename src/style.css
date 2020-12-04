@@ -4,11 +4,31 @@
 @font-face {
     font-family: 'Rubik';
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     src:
-      url('./fonts/Rubik-Regular.ttf') format('ttf');
+        url('./fonts/Rubik-Regular.ttf') format('ttf'),
+        url('./fonts/Rubik-Regular.woff') format('woff'),
+        url('./fonts/Rubik-Regular.woff2') format('woff2');
   }
-   
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    src:
+    url('./fonts/Rubik-Medium.ttf') format('ttf'),
+    url('./fonts/Rubik-Medium.woff2') format('woff2'),
+    url('./fonts/Rubik-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Rubik';
+    font-size: normal;
+    font-weight: 700;
+    src:
+    url('./fonts/Rubik-Bold.ttf') format('ttf'),
+    url('./fonts/Rubik-Bold.woff2') format('woff2'),
+    url('./fonts/Rubik-Bold.woff') format('woff');
+} 
   html,
   body {
     font-family: 'Rubik', sans-serif;
@@ -49,6 +69,8 @@ table{
 }
 h1{
     color:white;
+    font-weight:500;
+    text-align: center;
 }
 #myForm input[type='text']{
     margin-right:-8px;
@@ -59,20 +81,21 @@ h1{
     overflow: hidden;
     background-color:white;
     position:relative;
+    width:400px;
 }
 #ip{
     border-radius: 5px 0 0 5px;
-    width:220px;
-    height:30px;
+    width:93%;
+    height:35px;
 }
 button[type="submit"] {
     border-radius: 0 5px 5px 0;
-    height:30px;
+    height:35px;
     background-color:hsl(0, 0%, 17%);
   }
 button[type="submit"]:hover {
     border-radius: 0 5px 5px 0;
-    height:30px;
+    height:35px;
     background-color:hsl(0, 0%, 59%);
   }
 
