@@ -51,10 +51,21 @@ header{
 }
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
-th{
-    border-right: 1px solid #ccc;
+.table {
+    padding: 5px 0;
 }
-table{
+.table h2{
+    color:hsl(0, 0%, 59%);
+    font-size: 0.8em;
+    text-align: center;
+}
+.table p{
+    font-weight: 700;
+}
+.table{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-color: white;
     border-radius: 10px;
     position:absolute;
@@ -99,4 +110,19 @@ button[type="submit"]:hover {
     background-color:hsl(0, 0%, 59%);
   }
 
-
+@media screen and (max-width:640px){
+    .table{
+        flex-direction: column;
+        top:150px;
+        left: 0;
+        right: 0;
+        width:60%;
+        height: 320px;
+        text-align: center; 
+    }
+    header{
+        height: 280px;
+    }
+	
+    
+}

@@ -64,20 +64,14 @@ form.addEventListener( "submit", function ( event ) {
     sendData();
     
   } );
+
 function setTable(info){
       const {city, country, isp, timezone, query} = info;
-      const table = document.querySelector("tbody");
-      const secondRow = document.querySelector("tr").nextSibling;
-      if(secondRow){
-        secondRow.remove();
-      }
-      const row= document.createElement("tr");
-      row.innerHTML =  `<td style="text-align:center; border-right: 1px solid #ccc;"><strong>${query}</strong></td>
-                        <td style="text-align:center; border-right: 1px solid #ccc;"><strong>${city}, ${country}</strong></td>
-                        <td style="text-align:center; border-right: 1px solid #ccc;"><strong>${timezone}</strong></td>
-                        <td style="text-align:center; border-right: 1px solid #ccc;"><strong>${isp}</strong></td>`
-      
-      table.appendChild(row);               
+      const proba = document.querySelectorAll('.table p');
+      proba[0].innerHTML = `${query}`;
+      proba[1].innerHTML = `${city}, ${country}`;
+      proba[2].innerHTML = `${timezone}`;
+      proba[3].innerHTML = `${isp}`;   
     } 
 window.onload = () => {
   sendData();
