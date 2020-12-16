@@ -39,12 +39,10 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    
+    height: 180px;
     background-image: url("./images/pattern-bg.png");
 }
-header{
-    height: 180px;
-}
-
 #mapid { 
     height: 500px;
     z-index: 2;
@@ -84,10 +82,16 @@ h1{
     text-align: center;
 }
 #myForm input[type='text']{
-    margin-right:-8px;
+    border:none;
 }
-
+.vl{
+    border-left:2px solid hsl(0, 0%, 72%);
+    margin-top: 20px;
+    height: 50px;
+}
 .search_wrapper{
+    display:flex;
+    justify-content: space-between;
     border-radius: 5px;
     overflow: hidden;
     background-color:white;
@@ -102,27 +106,40 @@ h1{
 button[type="submit"] {
     border-radius: 0 5px 5px 0;
     height:35px;
-    background-color:hsl(0, 0%, 17%);
+    background-color:hsl(0, 0%, 3%);
   }
 button[type="submit"]:hover {
-    border-radius: 0 5px 5px 0;
-    height:35px;
     background-color:hsl(0, 0%, 59%);
   }
-
 @media screen and (max-width:640px){
     .table{
         flex-direction: column;
         top:150px;
         left: 0;
         right: 0;
-        width:60%;
-        height: 320px;
+        width:90%;
+        height: 340px;
         text-align: center; 
     }
-    header{
-        height: 280px;
+    #ip{
+        border-radius: 5px 0 0 5px;
+        width:70%;
+        height:50px;
     }
-	
-    
+    button[type="submit"] {
+        height:50px;
+        width:4em;
+      }
+    div.table > &:first-child{
+        padding-top: 4px;
+    }
+    div.table > &:last-child{
+        padding-bottom: 4px;
+    }
+    .header{
+        height: 300px;
+    }
+    .vl{
+        display:none;
+    }
 }

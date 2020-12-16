@@ -1,7 +1,7 @@
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
-import './style.css';
 import image from "./images/icon-location.svg";
+import './style.css';
 
  
 const map = L.map('mapid', {
@@ -68,10 +68,10 @@ form.addEventListener( "submit", function ( event ) {
 function setTable(info){
       const {city, country, isp, timezone, query} = info;
       const proba = document.querySelectorAll('.table p');
-      proba[0].innerHTML = `${query}`;
-      proba[1].innerHTML = `${city}, ${country}`;
-      proba[2].innerHTML = `${timezone}`;
-      proba[3].innerHTML = `${isp}`;   
+      proba[0].textContent = `${query}`;
+      proba[1].textContent = `${city}, ${country}`;
+      proba[2].textContent = `${timezone}`;
+      proba[3].textContent = `${isp}`;   
     } 
 window.onload = () => {
   sendData();
